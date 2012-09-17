@@ -19,7 +19,6 @@
 		58D2479F15EAFEF6008E2252 /* SeasonsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D2479E15EAFEF6008E2252 /* SeasonsController.m */; };
 		58D247A315EB0091008E2252 /* BoardChoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D247A215EB0091008E2252 /* BoardChoiceController.m */; };
 		58D247A515EB0151008E2252 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = 58D247A415EB0151008E2252 /* board.png */; };
-		58D898E11607BA5A001E1B2F /* database.sql in Resources */ = {isa = PBXBuildFile; fileRef = 58D898E01607BA5A001E1B2F /* database.sql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,7 @@
 		58D247A115EB0091008E2252 /* BoardChoiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardChoiceController.h; sourceTree = "<group>"; };
 		58D247A215EB0091008E2252 /* BoardChoiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardChoiceController.m; sourceTree = "<group>"; };
 		58D247A415EB0151008E2252 /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = board.png; sourceTree = "<group>"; };
-		58D898E01607BA5A001E1B2F /* database.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = database.sql; path = server/database.sql; sourceTree = "<group>"; };
+		58D898E71607CFE1001E1B2F /* server */ = {isa = PBXFileReference; lastKnownFileType = folder; path = server; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +62,7 @@
 		58D2476515EAF004008E2252 = {
 			isa = PBXGroup;
 			children = (
-				58D898DE1607BA32001E1B2F /* server */,
+				58D898E71607CFE1001E1B2F /* server */,
 				58D2477A15EAF004008E2252 /* Bingo */,
 				58D2477315EAF004008E2252 /* Frameworks */,
 				58D2477115EAF004008E2252 /* Products */,
@@ -159,14 +158,6 @@
 			name = BoardChoiceController;
 			sourceTree = "<group>";
 		};
-		58D898DE1607BA32001E1B2F /* server */ = {
-			isa = PBXGroup;
-			children = (
-				58D898E01607BA5A001E1B2F /* database.sql */,
-			);
-			name = server;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,7 +211,6 @@
 				58D2477F15EAF004008E2252 /* InfoPlist.strings in Resources */,
 				58D2478815EAF004008E2252 /* MainStoryboard.storyboard in Resources */,
 				58D247A515EB0151008E2252 /* board.png in Resources */,
-				58D898E11607BA5A001E1B2F /* database.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
