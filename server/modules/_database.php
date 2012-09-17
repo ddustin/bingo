@@ -11,6 +11,9 @@ class Database {
     // Returns the resulting string.
     function escape($str, $addQuotes = true)
     {
+        if($str === NULL)
+            return NULL;
+        
         $str = mysql_real_escape_string($str, $this->link);
         
         if($addQuotes)
