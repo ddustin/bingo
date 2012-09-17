@@ -1,6 +1,6 @@
 <?php
 include(dirname(__FILE__)."/modules/user.php");
 
-echo "test hello!";
+echo "test test!!!";
 
 ?>
