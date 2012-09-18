@@ -1,7 +1,7 @@
 <?php
 
 // If true, errors are output.  If false errors are emailed.
-$errorDebugMode = false;
+$errorDebugMode = true;
 
 function declare_error($errstr)
 {
@@ -34,8 +34,8 @@ function declare_error($errstr)
     
     if($GLOBALS['errorDebugMode'])
         echo '<pre>'.$email."</pre> <br>\n";
-    //else
-    //    mail("dusty@dustytech.com", "[{$_SERVER['HTTP_HOST']}] $errstr", "$errstr\n\n\n$email", $headers);
+    else
+        mail("dustinpaystaxes@gmail.com", "[{$_SERVER['HTTP_HOST']}] $errstr", "$errstr\n\n\n$email", $headers);
     
     header("Location: /");
     exit;
@@ -73,7 +73,7 @@ function declare_warning($errstr)
     if($GLOBALS['errorDebugMode'])
         echo '<pre>'.$email."</pre> <br>\n";
     else
-        mail("dusty@dustytech.com", "[{$_SERVER['HTTP_HOST']}] $errstr", "$errstr\n\n\n$email", $headers);
+        mail("dustinpaystaxes@gmail.com", "[{$_SERVER['HTTP_HOST']}] $errstr", "$errstr\n\n\n$email", $headers);
 }
 
 function php_error_handler($errno, $errstr, $errfile, $errline, $errcontext)
