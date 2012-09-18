@@ -4,7 +4,10 @@
     /******* Functions *********
      
      currentSeason(show_id)
-     // Returns the current season_id given a show_id or 0 on failure.
+     // Returns the current season_id given a show_id or false on failure.
+    
+     loadSeason(season_id)
+     // Returns the meta data around a seasons or false on failure.
      
      loadEpisodes(season_id, loadAll)
      // Loads all the episode meta data (include card_ids) for 'season_id'.
@@ -45,9 +48,14 @@
         $row = myself_fetch_row($res);
         
         if(!$row)
-            return 0;
+            return false;
         
         return $row[0];
+    }
+    
+    function loadSeason($season_id) {
+    
+    
     }
     
     function loadEpisodes($season_id, $loadAll) {
