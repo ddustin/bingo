@@ -1,6 +1,6 @@
 <?php
-include_once(dirname(__FILE__)."/time.php");
-include_once(dirname(__FILE__)."/error.php");
+include_once("time.php");
+include_once("error.php");
 
 // A database connection...
 class Database {

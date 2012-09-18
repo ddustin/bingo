@@ -34,10 +34,13 @@ function declare_error($errstr)
     
     if($GLOBALS['errorDebugMode'])
         echo '<pre>'.$email."</pre> <br>\n";
-    else
+    else {
+        
         mail("dustinpaystaxes@gmail.com", "[{$_SERVER['HTTP_HOST']}] $errstr", "$errstr\n\n\n$email", $headers);
+        
+        header("Location: /");
+    }
     
-    header("Location: /");
     exit;
 }
 
