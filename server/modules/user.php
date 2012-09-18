@@ -38,6 +38,9 @@ function getLogin($device_name) {
     
     global $database;
     
+    if(!$device_name)
+        return false;
+    
     $device_name = $database->escape($device_name);
     
     $query = "select `user_id` from `user_device` where `device_name` = $device_name limit 1";
@@ -55,6 +58,9 @@ function getLogin($device_name) {
 function getUserDeviceId($device_name) {
     
     global $database;
+    
+    if(!$device_name)
+        return false;
     
     $device_name = $database->escape($device_name);
     
@@ -113,6 +119,12 @@ function tryLogin($device_name, $fbId, $email_unsafe, $password_unsafe) {
     
     global $database;
     
+    if(!$device_name)
+        return false;
+    
+    if(!$fbId && (!$email_unsafe || !$password_unsafe))
+        return false;
+    
     $userDeviceId = getUserDeviceId($device_name);
     
     if($userDeviceId === false)
@@ -162,6 +174,12 @@ function tryLogin($device_name, $fbId, $email_unsafe, $password_unsafe) {
 function tryRegister($device_name, $fbId, $name, $email_unsafe, $password_unsafe, $repeatPassword_unsafe) {
     
     global $database;
+    
+    if(!$device_name)
+        return "Server error: no device_name specified.";
+    
+    if(!$fbId && (!$email_unsafe || !$password_unsafe))
+        return "Server error: must specify fbId or email.";
     
     $userDeviceId = getUserDeviceId($device_name);
     
