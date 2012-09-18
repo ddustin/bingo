@@ -8,8 +8,6 @@
     
     $resp = array();
     
-    error_log("tryLogin($device_name, $fbId, $email, $password)");
-    
     $resp["success"] = (tryLogin($device_name, $fbId, $email, $password) === true ? 1 : 0);
     
     echo json_encode($resp);
