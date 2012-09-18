@@ -197,9 +197,14 @@ function tryRegister($device_name, $fbId, $name, $email_unsafe, $password_unsafe
     $name = $database->escape($name);
     $email = $database->escape($email_unsafe);
     
+    $facebookLogin = false;
+    
+    if($fbId)
+        $facebookLogin = true;
+    
     $query = NULL;
     
-    if($fbId) {
+    if($facebookLogin) {
         
         if($name && $email) {
             
@@ -248,7 +253,17 @@ function tryRegister($device_name, $fbId, $name, $email_unsafe, $password_unsafe
         }
     }
     
-    $user_id = $database->insert($query);
+    if($facebookLogin) {
+        
+        $user_id = $database->insert($query);
+    }
+    else {
+        
+        $user_id = $database->insert($query, false);
+        
+        if(!$user_id)
+            return "That email addressed is already registered, please use another.";
+    }
     
     if(!$user_id)
         return "Server error: Invalid user_id.";
