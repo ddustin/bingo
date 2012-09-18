@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Facebook.h"
 
-@interface FacebookPendingController : UIViewController
+@class FacebookPendingController;
+
+@protocol FacebookPendingControllerDelegate <NSObject>
+
+- (void)facebookPendingSucceeded:(FacebookPendingController*)instance serverResponse:(NSDictionary*)serverResponse;
+- (void)facebookPendingFailed:(FacebookPendingController*)instance serverResponse:(NSDictionary*)serverResponse;
+
+@end
+
+@interface FacebookPendingController : UIViewController<FBRequestDelegate>
+
+@property (nonatomic, weak) id<FacebookPendingControllerDelegate> delegate;
 
 @end

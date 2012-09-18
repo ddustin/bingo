@@ -8,6 +8,7 @@
 
 #import "EpisodesController.h"
 #import "Util.h"
+#import "AppDelegate.h"
 
 @interface EpisodesController ()
 
@@ -28,6 +29,8 @@
 }
 
 - (IBAction)logout:(id)sender {
+    
+    [AppDelegate.shared.facebook logout];
     
     NSMutableString *str = [NSMutableString string];
     

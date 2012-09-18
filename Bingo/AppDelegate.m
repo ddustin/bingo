@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 #import "BWQuincyManager.h"
 
-NSString *kFacebookDidLogin = @"kFacebookDidLogin";
-NSString *kFacebookLoginLost = @"kFacebookLoginLost";
+NSString *FacebookLogin = @"FacebookLogin";
+NSString *FacebookLoginFails = @"FacebookLoginFails";
 
 @implementation AppDelegate
 @synthesize facebook;
@@ -27,7 +27,7 @@ static AppDelegate *instance = nil;
     
     if(!facebook) {
         
-        facebook = [[Facebook alloc] initWithAppId:@"354569227963046" urlSchemeSuffix:@"BingoGuido" andDelegate:self];
+        facebook = [[Facebook alloc] initWithAppId:@"354569227963046" urlSchemeSuffix:@"bingoguido" andDelegate:self];
         
         if ([[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenKey"]
             && [[NSUserDefaults standardUserDefaults] objectForKey:@"FBExpirationDateKey"]) {
@@ -42,13 +42,11 @@ static AppDelegate *instance = nil;
 
 - (void)fbDidLogin {
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [[NSUserDefaults standardUserDefaults] setObject:self.facebook.accessToken forKey:@"FBAccessTokenKey"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.facebook.expirationDate forKey:@"FBExpirationDateKey"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [defaults setObject:self.facebook.accessToken forKey:@"FBAccessTokenKey"];
-    [defaults setObject:self.facebook.expirationDate forKey:@"FBExpirationDateKey"];
-    [defaults synchronize];
-    
-    [NSNotificationCenter.defaultCenter postNotificationName:kFacebookDidLogin object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:FacebookLogin object:nil];
 }
 
 - (BOOL)isFbLoggedIn {
@@ -61,7 +59,7 @@ static AppDelegate *instance = nil;
 
 - (void)fbDidNotLogin:(BOOL)cancelled {
     
-    
+    [NSNotificationCenter.defaultCenter postNotificationName:FacebookLoginFails object:nil];
 }
 
 - (void)fbDidExtendToken:(NSString*)accessToken expiresAt:(NSDate*)expiresAt {
@@ -80,8 +78,6 @@ static AppDelegate *instance = nil;
     [defaults removeObjectForKey:@"FBExpirationDateKey"];
     
     [defaults synchronize];
-    
-    [NSNotificationCenter.defaultCenter postNotificationName:kFacebookLoginLost object:nil];
 }
 
 - (void)fbSessionInvalidated {
@@ -95,15 +91,27 @@ static AppDelegate *instance = nil;
     [defaults removeObjectForKey:@"FBExpirationDateKey"];
     
     [defaults synchronize];
-    
-    [NSNotificationCenter.defaultCenter postNotificationName:kFacebookLoginLost object:nil];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    instance = self;
+    
     [[BWQuincyManager sharedQuincyManager] setSubmissionURL:@"http://www.agileordering.com/quincy/crash_v200.php"];
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    instance = self;
+    
+    return [self.facebook handleOpenURL:url];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    
+    instance = nil;
 }
 
 @end

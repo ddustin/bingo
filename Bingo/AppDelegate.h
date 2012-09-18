@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Facebook.h"
 
-extern NSString *kFacebookDidLogin;
-extern NSString *kFacebookLoginLost;
+extern NSString *FacebookLogin;
+extern NSString *FacebookLoginFails;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, FBSessionDelegate>
 

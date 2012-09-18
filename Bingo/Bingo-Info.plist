@@ -43,7 +43,7 @@
 			<string>com.guido.${PRODUCT_NAME:rfc1034identifier}</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb 354569227963046BingoGuido</string>
+				<string>fb354569227963046bingoguido</string>
 			</array>
 		</dict>
 	</array>

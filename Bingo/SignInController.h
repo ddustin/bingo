@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "EmailPendingController.h"
+#import "FacebookPendingController.h"
 
-@interface SignInController : UITableViewController<EmailPendingControllerDelegate>
+@interface SignInController : UITableViewController<EmailPendingControllerDelegate, FacebookPendingControllerDelegate>
 
 @end

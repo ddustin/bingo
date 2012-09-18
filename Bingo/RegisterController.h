@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FacebookPendingController.h"
 
-@interface RegisterController : UITableViewController
+@interface RegisterController : UITableViewController<FacebookPendingControllerDelegate>
 
 @end

@@ -39,6 +39,30 @@
         controller.delegate = self;
         controller.request = request;
     }
+    
+    if([segue.identifier isEqualToString:@"facebookRegister"]) {
+        
+        FacebookPendingController *controller = segue.destinationViewController;
+        
+        controller.delegate = self;
+    }
+}
+
+- (void)pendingFailed:(UIViewController *)instance serverResponse:(NSDictionary *)serverResponse {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)pendingSucceeded:(UIViewController *)instance serverResponse:(NSDictionary *)serverResponse {
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"signedin"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    UINavigationController *nav = self.navigationController;
+    
+    [nav popToRootViewControllerAnimated:NO];
+    
+    [nav.topViewController performSegueWithIdentifier:@"toEpisodes" sender:self];
 }
 
 - (void)emailPendingFailed:(EmailPendingController *)instance serverResponse:(NSDictionary *)serverResponse {
@@ -52,19 +76,31 @@
     
     [alert show];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self pendingFailed:instance serverResponse:serverResponse];
 }
 
 - (void)emailPendingSucceeded:(EmailPendingController *)instance serverResponse:(NSDictionary *)serverResponse {
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"signedin"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self pendingSucceeded:instance serverResponse:serverResponse];
+}
+
+- (void)facebookPendingFailed:(FacebookPendingController *)instance serverResponse:(NSDictionary *)serverResponse {
     
-    UINavigationController *nav = self.navigationController;
+    UIAlertView *alert = [UIAlertView new];
     
-    [nav popToRootViewControllerAnimated:NO];
+    alert.title = @"Trouble";
+    alert.message = @"There was a problem completing the Facebook registration.";
     
-    [nav.topViewController performSegueWithIdentifier:@"toEpisodes" sender:self];
+    [alert addButtonWithTitle:@"Okay"];
+    
+    [alert show];
+    
+    [self pendingFailed:instance serverResponse:serverResponse];
+}
+
+- (void)facebookPendingSucceeded:(FacebookPendingController *)instance serverResponse:(NSDictionary *)serverResponse {
+    
+    [self pendingSucceeded:instance serverResponse:serverResponse];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
