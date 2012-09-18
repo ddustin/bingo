@@ -12,15 +12,23 @@
 
 @interface EpisodesController ()
 
+@property (nonatomic, strong) NSArray *episodes;
+
 @end
 
 @implementation EpisodesController
+@synthesize episodes;
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     self.navigationItem.hidesBackButton = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,6 +69,18 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.episodes.count;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    return cell;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
