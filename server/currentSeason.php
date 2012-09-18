@@ -12,6 +12,8 @@
     $result = array();
     
     $result["season"] = $season;
-    $result["episdoes"] = $episodes;
+    $result["episodes"] = $episodes;
     $result["bingoCards"] = $bingoCards;
+    
+    echo json_encode($result);
 ?>

@@ -9,14 +9,14 @@
      loadSeason(season_id)
      // Returns the meta data around a seasons or false on failure.
      
-     loadEpisodes(season_id, loadAll)
+     loadEpisodes(season_id[, loadAll])
      // Loads all the episode meta data (include card_ids) for 'season_id'.
      // By default only opens the episodes that are visible. If you specify true for
      // 'loadAll', episodes are returned regardless of their visible flag.
      // 
      // The result is an array of hash tables describing each episode or false on failure.
      
-     loadCardIds(season_id, loadAll)
+     loadCardIds(season_id[, loadAll])
      // Loads all the card_ids for the given season. By default only gives boards for
      // the episodes that are visible. If you specify true for 'loadAll', episodes are
      // returned regardless of their visible flag.
@@ -45,7 +45,7 @@
         
         $res = $database->query($query);
         
-        $row = myself_fetch_row($res);
+        $row = mysql_fetch_row($res);
         
         if(!$row)
             return false;
@@ -59,11 +59,11 @@
         
         $season_id = intval($season_id);
         
-        $query = "select `id`, `number` from `show` where `id` = $season_id limit 1";
+        $query = "select `id`, `number` from `season` where `id` = $season_id limit 1";
         
         $res = $database->query($query);
         
-        $row = myself_fetch_row($res);
+        $row = mysql_fetch_row($res);
         
         if(!$row)
             return false;
@@ -73,7 +73,7 @@
         return $ret;
     }
     
-    function loadEpisodes($season_id, $loadAll) {
+    function loadEpisodes($season_id, $loadAll = false) {
         
         global $database;
         
@@ -103,7 +103,7 @@
         return $array;
     }
     
-    function loadCardIds($season_id, $loadAll) {
+    function loadCardIds($season_id, $loadAll = false) {
         
         global $database;
         
@@ -123,7 +123,7 @@
         
         $ret = array();
         
-        while($row = myself_fetch_row($res)) {
+        while($row = mysql_fetch_row($res)) {
             
             $ret[] = $row[0];
         }
@@ -146,7 +146,7 @@
         
         $ret = array();
         
-        while($row = myself_fetch_row($res)) {
+        while($row = mysql_fetch_row($res)) {
             
             $ret[] = $row[0];
         }
@@ -163,7 +163,7 @@
         
         $card_id_array = array_map("intval", $card_id_array);
         
-        if(!array_count($card_id_array))
+        if(!count($card_id_array))
             return array();
         
         $idStr = implode(",", $card_id_array);
@@ -177,7 +177,7 @@
         
         $ret = array();
         
-        while($row = myself_fetch_row($res)) {
+        while($row = mysql_fetch_row($res)) {
             
             $ret[$row[0]] = json_decode($row[1]);
         }
