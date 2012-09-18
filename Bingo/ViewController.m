@@ -17,7 +17,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)pushAheadIfLoggedIn {
+    
+    if([[[NSUserDefaults standardUserDefaults] objectForKey:@"signedin"] boolValue]) {
+        
+        [self performSegueWithIdentifier:@"toEpisodes" sender:self];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    if(!animated)
+        [self pushAheadIfLoggedIn];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    if(animated)
+        [self pushAheadIfLoggedIn];
 }
 
 - (void)viewDidUnload

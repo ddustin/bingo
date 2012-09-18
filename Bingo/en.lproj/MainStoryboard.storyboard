@@ -77,7 +77,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Sign In">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -91,15 +91,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jdK-Ym-8fa"/>
+                    <connections>
+                        <segue destination="Dai-2G-9mz" kind="push" identifier="toEpisodes" id="MOg-pn-7th"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-231" y="80"/>
+            <point key="canvasLocation" x="-547" y="73"/>
         </scene>
-        <!--Table View Controller - Sign In-->
+        <!--Sign In Controller - Sign In-->
         <scene sceneID="OOJ-Ae-t2j">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKP-em-CQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="TQg-Vm-43F" sceneMemberID="viewController">
+                <tableViewController id="TQg-Vm-43F" customClass="SignInController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jmN-tx-Xxr">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +128,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="Elm-qc-sCL" kind="push" id="cbR-qm-PW0"/>
+                                            <segue destination="Elm-qc-sCL" kind="push" identifier="facebookRegister" id="cbR-qm-PW0"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -143,13 +146,19 @@
                                                     <rect key="frame" x="20" y="20" width="260" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                                    <connections>
+                                                        <action selector="emailDone:" destination="TQg-Vm-43F" eventType="editingDidEndOnExit" id="q7U-bc-Mal"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" id="3Rp-01-uUq">
                                                     <rect key="frame" x="20" y="59" width="260" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                                    <connections>
+                                                        <action selector="passwordDone:" destination="TQg-Vm-43F" eventType="editingDidEndOnExit" id="CbM-xH-he6"/>
+                                                    </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cza-7d-K2w">
                                                     <rect key="frame" x="208" y="98" width="72" height="37"/>
@@ -163,7 +172,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ysg-dC-nWX" kind="push" id="jNq-DI-2FF"/>
+                                                        <segue destination="ysg-dC-nWX" kind="push" identifier="emailSignIn" id="jNq-DI-2FF"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -179,15 +188,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sign In" id="6Lb-WG-J9y"/>
+                    <connections>
+                        <outlet property="emailField" destination="sbG-0x-XT0" id="axE-S6-SsU"/>
+                        <outlet property="passwordField" destination="3Rp-01-uUq" id="iPV-Au-Kox"/>
+                    </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="157" y="446"/>
+            <point key="canvasLocation" x="65" y="370"/>
         </scene>
-        <!--Table View Controller - Register-->
+        <!--Register Controller - Register-->
         <scene sceneID="wRg-4V-nIW">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pPg-rj-93h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="DOp-eW-XHr" sceneMemberID="viewController">
+                <tableViewController id="DOp-eW-XHr" customClass="RegisterController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="0eR-yd-t6h">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +226,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="Elm-qc-sCL" kind="push" id="Npt-tc-t9q"/>
+                                            <segue destination="Elm-qc-sCL" kind="push" identifier="facebookRegister" id="Npt-tc-t9q"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -238,7 +251,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="A2H-Gu-cdG" kind="push" id="Iy8-4I-Lcn"/>
+                                            <segue destination="A2H-Gu-cdG" kind="push" identifier="emailRegistration" id="Iy8-4I-Lcn"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -252,49 +265,41 @@
                     <navigationItem key="navigationItem" title="Register" id="Ez6-sR-Smj"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="523" y="80"/>
+            <point key="canvasLocation" x="65" y="-265"/>
         </scene>
-        <!--View Controller - Facebook Login-->
+        <!--Facebook Pending Controller - Facebook Login-->
         <scene sceneID="r3j-KO-OA4">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBU-0x-JdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Elm-qc-sCL" sceneMemberID="viewController">
+                <viewController id="Elm-qc-sCL" customClass="FacebookPendingController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dlr-fk-Ljq">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vMw-UI-7aY">
-                                <rect key="frame" x="77" y="189" width="167" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="FB Signin Complete">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Dai-2G-9mz" kind="push" id="fgT-YV-hpg"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" id="W24-aA-l8S">
-                                <rect key="frame" x="150" y="132" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" id="HD8-Jc-mrU">
+                                <rect key="frame" x="150" y="180" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="03U-Nb-aD0">
+                                <rect key="frame" x="118" y="208" width="84" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Facebook Login" id="u3c-1J-IBD"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="962" y="-186"/>
+            <point key="canvasLocation" x="964" y="-265"/>
         </scene>
-        <!--Table View Controller - Email Registration-->
+        <!--Email Register Controller - Email Registration-->
         <scene sceneID="Mwh-g6-EyB">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34x-Qa-cul" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="A2H-Gu-cdG" sceneMemberID="viewController">
+                <tableViewController id="A2H-Gu-cdG" customClass="EmailRegisterController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="AmU-Gm-18f">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,25 +318,37 @@
                                                     <rect key="frame" x="20" y="61" width="260" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                                    <connections>
+                                                        <action selector="emailFinished:" destination="A2H-Gu-cdG" eventType="editingDidEndOnExit" id="CJY-en-PR0"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" minimumFontSize="17" id="yUA-OM-IHb">
                                                     <rect key="frame" x="20" y="22" width="260" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="namePhonePad" returnKeyType="next"/>
+                                                    <connections>
+                                                        <action selector="fullNameFinished:" destination="A2H-Gu-cdG" eventType="editingDidEndOnExit" id="s7j-rO-i6d"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" id="oQL-Tn-zna">
                                                     <rect key="frame" x="20" y="100" width="260" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
+                                                    <connections>
+                                                        <action selector="passwordField:" destination="A2H-Gu-cdG" eventType="editingDidEndOnExit" id="tVu-aq-Ptk"/>
+                                                    </connections>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeast Password" minimumFontSize="17" id="lPF-gF-YAq">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password" minimumFontSize="17" id="lPF-gF-YAq">
                                                     <rect key="frame" x="20" y="139" width="260" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                                    <connections>
+                                                        <action selector="passwordRepeatFinished:" destination="A2H-Gu-cdG" eventType="editingDidEndOnExit" id="vku-rV-QSC"/>
+                                                    </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zu2-QC-vXI">
                                                     <rect key="frame" x="208" y="178" width="72" height="37"/>
@@ -345,7 +362,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ysg-dC-nWX" kind="push" id="q4x-fy-1wT"/>
+                                                        <segue destination="ysg-dC-nWX" kind="push" identifier="emailRegistration" id="q4x-fy-1wT"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -363,51 +380,49 @@
                     <navigationItem key="navigationItem" title="Email Registration" id="5UP-pk-lJO">
                         <barButtonItem key="backBarButtonItem" title="Signup" id="7NU-my-c1s"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailField" destination="4l4-I0-zPz" id="JKR-J5-T9H"/>
+                        <outlet property="fullNameField" destination="yUA-OM-IHb" id="1M8-iM-JgS"/>
+                        <outlet property="passwordField" destination="oQL-Tn-zna" id="ovz-Xy-hkJ"/>
+                        <outlet property="passwordRepeatField" destination="lPF-gF-YAq" id="Dxs-z3-GiL"/>
+                    </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="860" y="473"/>
+            <point key="canvasLocation" x="710" y="379"/>
         </scene>
-        <!--View Controller-->
+        <!--Email Pending Controller-->
         <scene sceneID="CQK-0v-F2c">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRQ-rT-ekI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="ysg-dC-nWX" sceneMemberID="viewController">
+                <viewController id="ysg-dC-nWX" customClass="EmailPendingController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mVh-7l-uJ3">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tyl-nQ-be5">
-                                <rect key="frame" x="62" y="189" width="196" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Email Sign In Complete">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Dai-2G-9mz" kind="push" id="g3v-LW-cIl"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" id="3eg-he-g38">
-                                <rect key="frame" x="150" y="107" width="20" height="20"/>
+                                <rect key="frame" x="150" y="180" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="jXq-Ol-VGy">
+                                <rect key="frame" x="118" y="208" width="84" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="cUl-cJ-WaW"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1305" y="697"/>
+            <point key="canvasLocation" x="1335" y="699"/>
         </scene>
-        <!--Seasons Controller - Episodes-->
+        <!--Episodes Controller - Episodes-->
         <scene sceneID="Ino-MT-1Yn">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4RP-9b-1YX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="Dai-2G-9mz" customClass="SeasonsController" sceneMemberID="viewController">
+                <tableViewController id="Dai-2G-9mz" customClass="EpisodesController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QBd-5G-vSx">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -432,9 +447,6 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <connections>
-                                            <segue destination="CIg-Zr-xfC" kind="push" id="I0a-Hc-KeI"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="dFQ-Pp-6hj" style="IBUITableViewCellStyleDefault" id="FjL-WC-m7O">
                                         <rect key="frame" x="0.0" y="44" width="320" height="44"/>
@@ -606,10 +618,19 @@
                             <outlet property="delegate" destination="Dai-2G-9mz" id="IDD-0o-XCF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Episodes" id="62N-ge-qXf"/>
+                    <navigationItem key="navigationItem" title="Episodes" id="62N-ge-qXf">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Kqz-2O-GgR">
+                            <connections>
+                                <action selector="logout:" destination="Dai-2G-9mz" id="ktp-k2-4Js"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="CIg-Zr-xfC" kind="push" identifier="toBoardChoice" id="fRD-w5-qnN"/>
+                    </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1394" y="118"/>
+            <point key="canvasLocation" x="1976" y="454"/>
         </scene>
         <!--Table View Controller - Choose Your Card-->
         <scene sceneID="8F6-so-dPu">
@@ -777,7 +798,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1851" y="126"/>
+            <point key="canvasLocation" x="2523" y="454"/>
         </scene>
         <!--View Controller - Purchase Card-->
         <scene sceneID="wUa-Xa-CMZ">
@@ -820,7 +841,7 @@
                     <navigationItem key="navigationItem" title="Purchase Card" id="nOe-Zv-sGo"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2369" y="-108"/>
+            <point key="canvasLocation" x="3151" y="-98"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5LK-eb-z6w">
@@ -856,7 +877,7 @@
                     <navigationItem key="navigationItem" id="JTs-AS-fAp"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2350" y="463"/>
+            <point key="canvasLocation" x="3151" y="833"/>
         </scene>
         <!--Bingo Controller - Jersey Shore Bingo-->
         <scene sceneID="gin-R8-TKE">
@@ -1106,7 +1127,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2825" y="286"/>
+            <point key="canvasLocation" x="3751" y="534"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aiz-2T-c5W">
@@ -1121,7 +1142,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-630" y="73"/>
+            <point key="canvasLocation" x="-972" y="73"/>
         </scene>
     </scenes>
     <resources>
@@ -1131,8 +1152,33 @@
         <class className="BingoController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BingoController.h"/>
         </class>
-        <class className="SeasonsController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SeasonsController.h"/>
+        <class className="EmailPendingController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EmailPendingController.h"/>
+        </class>
+        <class className="EmailRegisterController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EmailRegisterController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fullNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordRepeatField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="EpisodesController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EpisodesController.h"/>
+        </class>
+        <class className="FacebookPendingController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FacebookPendingController.h"/>
+        </class>
+        <class className="RegisterController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterController.h"/>
+        </class>
+        <class className="SignInController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SignInController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
@@ -1144,9 +1190,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Npt-tc-t9q"/>
+        <segue reference="cbR-qm-PW0"/>
+        <segue reference="N1S-Dz-kss"/>
         <segue reference="q4x-fy-1wT"/>
-        <segue reference="g3v-LW-cIl"/>
-        <segue reference="ulr-DB-3zA"/>
     </inferredMetricsTieBreakers>
 </document>

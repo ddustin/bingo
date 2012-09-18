@@ -16,9 +16,15 @@
 		58D2478815EAF004008E2252 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58D2478615EAF004008E2252 /* MainStoryboard.storyboard */; };
 		58D2478B15EAF004008E2252 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D2478A15EAF004008E2252 /* ViewController.m */; };
 		58D2479315EAF30C008E2252 /* BingoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D2479215EAF30C008E2252 /* BingoController.m */; };
-		58D2479F15EAFEF6008E2252 /* SeasonsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D2479E15EAFEF6008E2252 /* SeasonsController.m */; };
+		58D2479F15EAFEF6008E2252 /* EpisodesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D2479E15EAFEF6008E2252 /* EpisodesController.m */; };
 		58D247A315EB0091008E2252 /* BoardChoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D247A215EB0091008E2252 /* BoardChoiceController.m */; };
 		58D247A515EB0151008E2252 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = 58D247A415EB0151008E2252 /* board.png */; };
+		58D898F916080D07001E1B2F /* SignInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D898F816080D07001E1B2F /* SignInController.m */; };
+		58D898FC16080D1D001E1B2F /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D898FB16080D1D001E1B2F /* RegisterController.m */; };
+		58D898FF16080D40001E1B2F /* EmailRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D898FE16080D40001E1B2F /* EmailRegisterController.m */; };
+		58D8990216080D62001E1B2F /* FacebookPendingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D8990116080D62001E1B2F /* FacebookPendingController.m */; };
+		58D8990516080D6D001E1B2F /* EmailPendingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D8990416080D6D001E1B2F /* EmailPendingController.m */; };
+		58D8990916081BCE001E1B2F /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D8990816081BCE001E1B2F /* Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,12 +43,24 @@
 		58D2478A15EAF004008E2252 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		58D2479115EAF30C008E2252 /* BingoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BingoController.h; sourceTree = "<group>"; };
 		58D2479215EAF30C008E2252 /* BingoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BingoController.m; sourceTree = "<group>"; };
-		58D2479D15EAFEF6008E2252 /* SeasonsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeasonsController.h; sourceTree = "<group>"; };
-		58D2479E15EAFEF6008E2252 /* SeasonsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeasonsController.m; sourceTree = "<group>"; };
+		58D2479D15EAFEF6008E2252 /* EpisodesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodesController.h; sourceTree = "<group>"; };
+		58D2479E15EAFEF6008E2252 /* EpisodesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodesController.m; sourceTree = "<group>"; };
 		58D247A115EB0091008E2252 /* BoardChoiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardChoiceController.h; sourceTree = "<group>"; };
 		58D247A215EB0091008E2252 /* BoardChoiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardChoiceController.m; sourceTree = "<group>"; };
 		58D247A415EB0151008E2252 /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = board.png; sourceTree = "<group>"; };
 		58D898E71607CFE1001E1B2F /* server */ = {isa = PBXFileReference; lastKnownFileType = folder; path = server; sourceTree = "<group>"; };
+		58D898F716080D07001E1B2F /* SignInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInController.h; sourceTree = "<group>"; };
+		58D898F816080D07001E1B2F /* SignInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInController.m; sourceTree = "<group>"; };
+		58D898FA16080D1D001E1B2F /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
+		58D898FB16080D1D001E1B2F /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		58D898FD16080D40001E1B2F /* EmailRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailRegisterController.h; sourceTree = "<group>"; };
+		58D898FE16080D40001E1B2F /* EmailRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailRegisterController.m; sourceTree = "<group>"; };
+		58D8990016080D62001E1B2F /* FacebookPendingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookPendingController.h; sourceTree = "<group>"; };
+		58D8990116080D62001E1B2F /* FacebookPendingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookPendingController.m; sourceTree = "<group>"; };
+		58D8990316080D6D001E1B2F /* EmailPendingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailPendingController.h; sourceTree = "<group>"; };
+		58D8990416080D6D001E1B2F /* EmailPendingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailPendingController.m; sourceTree = "<group>"; };
+		58D8990716081BCE001E1B2F /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		58D8990816081BCE001E1B2F /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,10 +108,16 @@
 		58D2477A15EAF004008E2252 /* Bingo */ = {
 			isa = PBXGroup;
 			children = (
+				58D8990616081BC1001E1B2F /* Util */,
+				58D898F516080CA0001E1B2F /* EpisodesController */,
+				58D898F416080C55001E1B2F /* EmailPendingController */,
+				58D898F316080C4E001E1B2F /* FacebookPendingController */,
+				58D898F216080C47001E1B2F /* EmailRegisterController */,
+				58D898F116080C40001E1B2F /* RegisterController */,
+				58D898F016080C30001E1B2F /* SignInController */,
 				58D247A415EB0151008E2252 /* board.png */,
 				58D247A015EB0080008E2252 /* BoardChoiceController */,
 				58D2478615EAF004008E2252 /* MainStoryboard.storyboard */,
-				58D2479C15EAFED6008E2252 /* SeasonsController */,
 				58D2479615EAF31D008E2252 /* AppDelegate */,
 				58D2479515EAF316008E2252 /* ViewController */,
 				58D2477B15EAF004008E2252 /* Supporting Files */,
@@ -140,15 +164,6 @@
 			name = AppDelegate;
 			sourceTree = "<group>";
 		};
-		58D2479C15EAFED6008E2252 /* SeasonsController */ = {
-			isa = PBXGroup;
-			children = (
-				58D2479D15EAFEF6008E2252 /* SeasonsController.h */,
-				58D2479E15EAFEF6008E2252 /* SeasonsController.m */,
-			);
-			name = SeasonsController;
-			sourceTree = "<group>";
-		};
 		58D247A015EB0080008E2252 /* BoardChoiceController */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +171,69 @@
 				58D247A215EB0091008E2252 /* BoardChoiceController.m */,
 			);
 			name = BoardChoiceController;
+			sourceTree = "<group>";
+		};
+		58D898F016080C30001E1B2F /* SignInController */ = {
+			isa = PBXGroup;
+			children = (
+				58D898F716080D07001E1B2F /* SignInController.h */,
+				58D898F816080D07001E1B2F /* SignInController.m */,
+			);
+			name = SignInController;
+			sourceTree = "<group>";
+		};
+		58D898F116080C40001E1B2F /* RegisterController */ = {
+			isa = PBXGroup;
+			children = (
+				58D898FA16080D1D001E1B2F /* RegisterController.h */,
+				58D898FB16080D1D001E1B2F /* RegisterController.m */,
+			);
+			name = RegisterController;
+			sourceTree = "<group>";
+		};
+		58D898F216080C47001E1B2F /* EmailRegisterController */ = {
+			isa = PBXGroup;
+			children = (
+				58D898FD16080D40001E1B2F /* EmailRegisterController.h */,
+				58D898FE16080D40001E1B2F /* EmailRegisterController.m */,
+			);
+			name = EmailRegisterController;
+			sourceTree = "<group>";
+		};
+		58D898F316080C4E001E1B2F /* FacebookPendingController */ = {
+			isa = PBXGroup;
+			children = (
+				58D8990016080D62001E1B2F /* FacebookPendingController.h */,
+				58D8990116080D62001E1B2F /* FacebookPendingController.m */,
+			);
+			name = FacebookPendingController;
+			sourceTree = "<group>";
+		};
+		58D898F416080C55001E1B2F /* EmailPendingController */ = {
+			isa = PBXGroup;
+			children = (
+				58D8990316080D6D001E1B2F /* EmailPendingController.h */,
+				58D8990416080D6D001E1B2F /* EmailPendingController.m */,
+			);
+			name = EmailPendingController;
+			sourceTree = "<group>";
+		};
+		58D898F516080CA0001E1B2F /* EpisodesController */ = {
+			isa = PBXGroup;
+			children = (
+				58D2479D15EAFEF6008E2252 /* EpisodesController.h */,
+				58D2479E15EAFEF6008E2252 /* EpisodesController.m */,
+			);
+			name = EpisodesController;
+			sourceTree = "<group>";
+		};
+		58D8990616081BC1001E1B2F /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				58D8990716081BCE001E1B2F /* Util.h */,
+				58D8990816081BCE001E1B2F /* Util.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,8 +303,14 @@
 				58D2478515EAF004008E2252 /* AppDelegate.m in Sources */,
 				58D2478B15EAF004008E2252 /* ViewController.m in Sources */,
 				58D2479315EAF30C008E2252 /* BingoController.m in Sources */,
-				58D2479F15EAFEF6008E2252 /* SeasonsController.m in Sources */,
+				58D2479F15EAFEF6008E2252 /* EpisodesController.m in Sources */,
 				58D247A315EB0091008E2252 /* BoardChoiceController.m in Sources */,
+				58D898F916080D07001E1B2F /* SignInController.m in Sources */,
+				58D898FC16080D1D001E1B2F /* RegisterController.m in Sources */,
+				58D898FF16080D40001E1B2F /* EmailRegisterController.m in Sources */,
+				58D8990216080D62001E1B2F /* FacebookPendingController.m in Sources */,
+				58D8990516080D6D001E1B2F /* EmailPendingController.m in Sources */,
+				58D8990916081BCE001E1B2F /* Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

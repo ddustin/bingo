@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SeasonsController : UITableViewController
+@interface EpisodesController : UITableViewController
 
 @end
