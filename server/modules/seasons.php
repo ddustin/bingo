@@ -54,8 +54,23 @@
     }
     
     function loadSeason($season_id) {
-    
-    
+        
+        global $database;
+        
+        $season_id = intval($season_id);
+        
+        $query = "select `id`, `number` from `show` where `id` = $season_id limit 1";
+        
+        $res = $database->query($query);
+        
+        $row = myself_fetch_row($res);
+        
+        if(!$row)
+            return false;
+        
+        $ret = array("id" => $row[0], "number" => $row[1]);
+        
+        return $ret;
     }
     
     function loadEpisodes($season_id, $loadAll) {
@@ -65,15 +80,27 @@
         $season_id = intval($season_id);
         
         if($loadAll)
-            $query = "select `id` from `episode` where `season_id` = $season_id";
+            $query = "select `id`, `number`, `name`, `description` from `episode` where `season_id` = $season_id";
         else
-            $query = "select `id` from `episode` where `season_id` = $season_id and `visible` = true";
+            $query = "select `id`, `number`, `name`, `description` from `episode` where `season_id` = $season_id and `visible` = true";
         
         $res = $database->query($query);
         
-        // TODO: implement
+        $array = array();
         
-        return false;
+        while($row = mysql_fetch_row($res)) {
+            
+            $obj = array("id" => $row[0],
+                         "number" => $row[1],
+                         "name" => $row[2],
+                         "description" => $row[3]);
+            
+            $obj["card_ids"] = loadCardIdsForEpisode($row[0]);
+            
+            $array[] = $obj;
+        }
+        
+        return $array;
     }
     
     function loadCardIds($season_id, $loadAll) {
