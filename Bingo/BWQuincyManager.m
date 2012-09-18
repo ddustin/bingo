@@ -186,7 +186,7 @@ NSString *BWQuincyLocalize(NSString *stringToken) {
     }
     
     if (!quincyBundle()) {
-      NSLog(@"WARNING: Quincy.bundle is missing, will send reports automatically!");
+//      NSLog(@"WARNING: Quincy.bundle is missing, will send reports automatically!");
     }
   }
   return self;
