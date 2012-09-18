@@ -3,12 +3,14 @@
     
     $device_name = $_REQUEST["device_name"];
     $fbId = $_REQUEST["fbId"];
-    $username = $_REQUEST["username"];
+    $email = $_REQUEST["email"];
     $password = $_REQUEST["password"];
     
     $resp = array();
     
-    $resp["success"] = (tryLogin($device_name, $fbId, $username, $password) === true ? 1 : 0);
+    error_log("tryLogin($device_name, $fbId, $email, $password)");
+    
+    $resp["success"] = (tryLogin($device_name, $fbId, $email, $password) === true ? 1 : 0);
     
     echo json_encode($resp);
 ?>

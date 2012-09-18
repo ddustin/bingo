@@ -14,6 +14,9 @@ include_once(dirname(__FILE__)."/database.php");
  // successful.
  // 
  // Returns true on success and false on failure.
+
+ logout(device_name)
+ // Attempts to log out the device referred to by 'device_name'
  
  tryRegister(device_name, fbId, name, email, password, repeatPassword)
  // Attempts to register a new user using either fbId or email + password + repeatPassword.
@@ -53,6 +56,20 @@ function getLogin($device_name) {
         return false;
     
     return $row[0];
+}
+
+function logout($device_name) {
+    
+    global $database;
+    
+    if(!$device_name)
+        return;
+    
+    $device_name = $database->escape($device_name);
+    
+    $query = "update `user_device` set `user_id`=0 where `device_name`=$device_name limit 1";
+    
+    $database->query($query);
 }
 
 function getUserDeviceId($device_name) {
@@ -151,6 +168,8 @@ function tryLogin($device_name, $fbId, $email_unsafe, $password_unsafe) {
             
             $password = encryptPassword($password_unsafe, $salt);
             
+            $password = $database->escape($password);
+            
             $query = "select `id` from `user` where `email`=$email and `password`=$password limit 1";
         }
     }
@@ -181,8 +200,11 @@ function tryRegister($device_name, $fbId, $name, $email_unsafe, $password_unsafe
     if(!$device_name)
         return "Server error: no device_name specified.";
     
+    if(!$fbId && $email_unsafe && !$password_unsafe)
+        return "You must specify a password";
+    
     if(!$fbId && (!$email_unsafe || !$password_unsafe))
-        return "Server error: must specify fbId or email + password.";
+        return "You must specify a facebook login or email & password.";
     
     $userDeviceId = getUserDeviceId($device_name);
     
