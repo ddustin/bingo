@@ -229,6 +229,9 @@ function tryRegister($device_name, $fbId, $name, $email_unsafe, $password_unsafe
         $salt = generatePasswordSalt();
         $password = encryptPassword($password_unsafe, $salt);
         
+        $salt = $database->escape($salt);
+        $password = $database->escape($password);
+        
         if($name) {
             
             $query = "insert into `user` (`name`, `email`, `password`, `salt`) values ($name, $email, $password, $salt)";
