@@ -179,7 +179,7 @@ function tryRegister($device_name, $fbId, $name, $email_unsafe, $password_unsafe
         return "Server error: no device_name specified.";
     
     if(!$fbId && (!$email_unsafe || !$password_unsafe))
-        return "Server error: must specify fbId or email.";
+        return "Server error: must specify fbId or email + password.";
     
     $userDeviceId = getUserDeviceId($device_name);
     
