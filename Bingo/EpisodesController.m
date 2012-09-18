@@ -9,6 +9,7 @@
 #import "EpisodesController.h"
 #import "Util.h"
 #import "AppDelegate.h"
+#import "Episodes.h"
 
 @interface EpisodesController ()
 
@@ -19,16 +20,40 @@
 @implementation EpisodesController
 @synthesize episodes;
 
+- (void)dealloc {
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     self.navigationItem.hidesBackButton = YES;
+    
+    self.episodes = Episodes.shared.episodes;
+    
+    if([Episodes.shared.season objectForKey:@"number"])
+        self.navigationItem.title = [NSString stringWithFormat:@"Season %@", [Episodes.shared.season objectForKey:@"number"]];
+    
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(episodesUpdated) name:EpisodesUpdated object:nil];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidUnload {
     
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
+    [super viewDidUnload];
+}
+
+- (void)episodesUpdated {
+    
+    self.episodes = Episodes.shared.episodes;
+    
+    if([Episodes.shared.season objectForKey:@"number"])
+        self.navigationItem.title = [NSString stringWithFormat:@"Season %@", [Episodes.shared.season objectForKey:@"number"]];
+    
+    [self.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -79,6 +104,19 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    NSDictionary *episode = [self.episodes objectAtIndex:indexPath.row];
+    
+    if([[episode objectForKey:@"name"] length]) {
+        
+        cell.textLabel.text = [episode objectForKey:@"name"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Episode %@", [episode objectForKey:@"number"]];
+    }
+    else {
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"Episode %@", [episode objectForKey:@"number"]];
+        cell.detailTextLabel.text = @"";
+    }
     
     return cell;
 }

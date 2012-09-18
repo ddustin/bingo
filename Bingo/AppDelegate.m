@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BWQuincyManager.h"
+#import "Episodes.h"
 
 NSString *FacebookLogin = @"FacebookLogin";
 NSString *FacebookLoginFails = @"FacebookLoginFails";
@@ -96,6 +97,8 @@ static AppDelegate *instance = nil;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     instance = self;
+    
+    [Episodes shared];
     
     [[BWQuincyManager sharedQuincyManager] setSubmissionURL:@"http://www.agileordering.com/quincy/crash_v200.php"];
     

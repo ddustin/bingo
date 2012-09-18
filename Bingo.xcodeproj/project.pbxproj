@@ -40,6 +40,7 @@
 		58D8994A160837D5001E1B2F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D8993D160837D5001E1B2F /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		58D8994E16083B95001E1B2F /* BWQuincyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D8994C16083B0D001E1B2F /* BWQuincyManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		58D8995016083BD1001E1B2F /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D8994F16083BD1001E1B2F /* CrashReporter.framework */; };
+		58D899551608F258001E1B2F /* Episodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D899541608F258001E1B2F /* Episodes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,8 @@
 		58D8994B16083B0D001E1B2F /* BWQuincyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWQuincyManager.h; sourceTree = "<group>"; };
 		58D8994C16083B0D001E1B2F /* BWQuincyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWQuincyManager.m; sourceTree = "<group>"; };
 		58D8994F16083BD1001E1B2F /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CrashReporter.framework; path = Bingo/CrashReporter.framework; sourceTree = "<group>"; };
+		58D899531608F258001E1B2F /* Episodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episodes.h; sourceTree = "<group>"; };
+		58D899541608F258001E1B2F /* Episodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episodes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,7 @@
 		58D2477A15EAF004008E2252 /* Bingo */ = {
 			isa = PBXGroup;
 			children = (
+				58D899521608F245001E1B2F /* Episodes */,
 				58D8994D16083B12001E1B2F /* BQQuincyManager */,
 				58D8990616081BC1001E1B2F /* Util */,
 				58D898F516080CA0001E1B2F /* EpisodesController */,
@@ -337,6 +341,15 @@
 			name = BQQuincyManager;
 			sourceTree = "<group>";
 		};
+		58D899521608F245001E1B2F /* Episodes */ = {
+			isa = PBXGroup;
+			children = (
+				58D899531608F258001E1B2F /* Episodes.h */,
+				58D899541608F258001E1B2F /* Episodes.m */,
+			);
+			name = Episodes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -426,6 +439,7 @@
 				58D89949160837D5001E1B2F /* SBJsonParser.m in Sources */,
 				58D8994A160837D5001E1B2F /* SBJsonWriter.m in Sources */,
 				58D8994E16083B95001E1B2F /* BWQuincyManager.m in Sources */,
+				58D899551608F258001E1B2F /* Episodes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
