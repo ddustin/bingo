@@ -36,6 +36,8 @@ include_once(dirname(__FILE__)."/database.php");
 
 function getLogin($device_name) {
     
+    global $database;
+    
     $device_name = $database->escape($device_name);
     
     $query = "select `user_id` from `user_device` where `device_name` = $device_name limit 1";
@@ -51,6 +53,8 @@ function getLogin($device_name) {
 }
 
 function getUserDeviceId($device_name) {
+    
+    global $database;
     
     $device_name = $database->escape($device_name);
     
@@ -68,6 +72,8 @@ function getUserDeviceId($device_name) {
 
 function addUserDevice($device_name) {
     
+    global $database;
+    
     $device_name = $database->escape($device_name);
     
     $query = "insert into `user_device` (`device_name`) VALUES ($device_name)";
@@ -81,6 +87,8 @@ function generatePasswordSalt() {
 }
 
 function getPasswordSalt($email) {
+    
+    global $database;
     
     $email = $database->escape($email);
     
@@ -102,6 +110,8 @@ function encryptPassword($password, $salt) {
 }
 
 function tryLogin($device_name, $fbId, $email_unsafe, $password_unsafe) {
+    
+    global $database;
     
     $userDeviceId = getUserDeviceId($device_name);
     
@@ -150,6 +160,8 @@ function tryLogin($device_name, $fbId, $email_unsafe, $password_unsafe) {
 }
 
 function tryRegister($device_name, $fbId, $name, $email_unsafe, $password_unsafe, $repeatPassword_unsafe) {
+    
+    global $database;
     
     $userDeviceId = getUserDeviceId($device_name);
     
