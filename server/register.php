@@ -4,7 +4,7 @@
     $device_name = $_REQUEST["device_name"];
     $fbId = $_REQUEST["fbId"];
     $name = $_REQUEST["name"];
-    $username = $_REQUEST["username"];
+    $email = $_REQUEST["email"];
     $password = $_REQUEST["password"];
     $passwordRepeat = $_REQUEST["passwordRepeat"];
     
@@ -15,7 +15,7 @@
     $resp["success"] = ($result === true ? 1 : 0);
     
     if($result !== true)
-        resp["message"] = $result;
+        $resp["message"] = $result;
     
     echo json_encode($resp);
 ?>
