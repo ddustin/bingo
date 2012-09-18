@@ -130,6 +130,9 @@ function tryLogin($device_name, $fbId, $email_unsafe, $password_unsafe) {
     if($userDeviceId === false)
         $userDeviceId = addUserDevice($device_name);
     
+    if(!$userDeviceId)
+        return false;
+    
     $device_name = $database->escape($device_name);
     $fbId = $database->escape($fbId);
     $email = $database->escape($email_unsafe);
@@ -164,7 +167,7 @@ function tryLogin($device_name, $fbId, $email_unsafe, $password_unsafe) {
     
     $user_id = $row[0];
     
-    $query = "update `user_device` set `user_id`=$user_id";
+    $query = "update `user_device` set `user_id`=$user_id where `id`=$userDeviceId limit 1";
     
     $database->query($query);
     
@@ -186,6 +189,9 @@ function tryRegister($device_name, $fbId, $name, $email_unsafe, $password_unsafe
     if($userDeviceId === false)
         $userDeviceId = addUserDevice($device_name);
     
+    if(!$userDeviceId)
+        return "Server error: unable to aquire device id.";
+    
     $device_name = $database->escape($device_name);
     $fbId = $database->escape($fbId);
     $name = $database->escape($name);
@@ -197,19 +203,19 @@ function tryRegister($device_name, $fbId, $name, $email_unsafe, $password_unsafe
         
         if($name && $email) {
             
-            $query = "insert into `user` (`fb_id`, `name`, `email`) values ($fbId, $name, $email)";
+            $query = "insert into `user` (`fb_id`, `name`, `email`) values ($fbId, $name, $email) on duplicate key update `name`=$name, `email`=$email";
         }
         else if($name) {
             
-            $query = "insert into `user` (`fb_id`, `name`) values ($fbId, $name)";
+            $query = "insert into `user` (`fb_id`, `name`) values ($fbId, $name) on duplicate key update `name`=$name";
         }
         else if($email) {
             
-            $query = "insert into `user` (`fb_id`, `email`) values ($fbId, $email)";
+            $query = "insert into `user` (`fb_id`, `email`) values ($fbId, $email) on duplicate key update `email`=$email";
         }
         else {
             
-            $query = "insert into `user` (`fb_id`) values ($fbId)";
+            $query = "insert into `user` (`fb_id`) values ($fbId) on duplicate key update `fb_id`=$fbId";
         }
     }
     else {
@@ -247,7 +253,7 @@ function tryRegister($device_name, $fbId, $name, $email_unsafe, $password_unsafe
     if(!$user_id)
         return "Server error: Invalid user_id.";
     
-    $query = "update `user_device` set `user_id`=$user_id";
+    $query = "update `user_device` set `user_id`=$user_id where `id`=$userDeviceId limit 1";
     
     $database->query($query);
     
