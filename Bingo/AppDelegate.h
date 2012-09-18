@@ -7,9 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Facebook.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+extern NSString *kFacebookDidLogin;
+extern NSString *kFacebookLoginLost;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, FBSessionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic, readonly) BOOL isFbLoggedIn;
+
+@property (nonatomic, strong) Facebook *facebook;
+
++ (AppDelegate*)shared;
 
 @end

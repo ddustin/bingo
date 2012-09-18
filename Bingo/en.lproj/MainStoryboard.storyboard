@@ -6,7 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller - Guido Bingo-->
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -90,7 +90,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jdK-Ym-8fa"/>
+                    <navigationItem key="navigationItem" title="Guido Bingo" id="jdK-Ym-8fa">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="BNj-Wx-Xpm"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="Dai-2G-9mz" kind="push" identifier="toEpisodes" id="MOg-pn-7th"/>
                     </connections>
@@ -841,7 +843,7 @@
                     <navigationItem key="navigationItem" title="Purchase Card" id="nOe-Zv-sGo"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3151" y="-98"/>
+            <point key="canvasLocation" x="3151" y="50"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5LK-eb-z6w">
@@ -1191,7 +1193,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="cbR-qm-PW0"/>
-        <segue reference="N1S-Dz-kss"/>
         <segue reference="q4x-fy-1wT"/>
+        <segue reference="b3i-MF-8Cw"/>
     </inferredMetricsTieBreakers>
 </document>
