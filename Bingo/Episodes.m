@@ -7,6 +7,8 @@
 //
 
 #import "Episodes.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 
 NSString *EpisodesUpdated = @"EpisodesUpdated";
 
@@ -78,7 +80,7 @@ NSString *EpisodesUpdated = @"EpisodesUpdated";
             if(!error)
                 result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             
-            NSParameterAssert([result isKindOfClass:NSDictionary.class]);
+            NSParameterAssert(error || [result isKindOfClass:NSDictionary.class]);
             
             if(error) {
                 

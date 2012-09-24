@@ -476,11 +476,11 @@
             </objects>
             <point key="canvasLocation" x="1976" y="454"/>
         </scene>
-        <!--Table View Controller - Choose Your Card-->
+        <!--Card List - Choose Your Card-->
         <scene sceneID="8F6-so-dPu">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="203-5T-4is" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="CIg-Zr-xfC" sceneMemberID="viewController">
+                <tableViewController id="CIg-Zr-xfC" customClass="CardList" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rDO-Nm-8Lc">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -517,7 +517,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="RO3-tg-ski" kind="modal" id="TeL-kq-IJu"/>
+                                            <segue destination="RO3-tg-ski" kind="modal" identifier="toPurchaseCard" id="TeL-kq-IJu"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="07Z-Q9-RoR" detailTextLabel="T0R-hZ-kbh" imageView="2vX-04-CbO" rowHeight="74" style="IBUITableViewCellStyleSubtitle" id="P3q-XT-hMd">
@@ -549,7 +549,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="nE3-Jz-bht" kind="modal" id="ldf-av-7Ws"/>
+                                            <segue destination="nE3-Jz-bht" kind="modal" identifier="toChooseCard" id="ldf-av-7Ws"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4Fw-06-7Wp" detailTextLabel="DpG-Ea-Wcm" imageView="c3H-JD-Kgb" rowHeight="74" style="IBUITableViewCellStyleSubtitle" id="49w-Ra-BoN">
@@ -581,7 +581,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="EqP-US-rsh" kind="push" id="ulr-DB-3zA"/>
+                                            <segue destination="EqP-US-rsh" kind="modal" identifier="toBingoCard" id="ulr-DB-3zA"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="74" id="Wf8-WN-QEL">
@@ -644,31 +644,31 @@
             </objects>
             <point key="canvasLocation" x="2523" y="454"/>
         </scene>
-        <!--View Controller - Purchase Card-->
+        <!--Purchase Card - Purchase Card-->
         <scene sceneID="wUa-Xa-CMZ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xld-ut-M2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="RO3-tg-ski" sceneMemberID="viewController">
+                <viewController id="RO3-tg-ski" customClass="PurchaseCard" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i0K-B9-6cs">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="board.png" id="lXp-QK-WKl">
-                                <rect key="frame" x="40" y="20" width="241" height="127"/>
+                                <rect key="frame" x="40" y="251" width="241" height="127"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Snookie Accessory is a one in a life opppurtinuty own a timetravel watch. It travels into the future with you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2UT-qs-Yx7">
-                                <rect key="frame" x="60" y="175" width="200" height="127"/>
+                                <rect key="frame" x="60" y="62" width="200" height="123"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="snp-9c-mHa">
-                                <rect key="frame" x="60" y="386" width="200" height="37"/>
+                                <rect key="frame" x="181" y="403" width="100" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Buy Now">
+                                <state key="normal" title="Buy">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -676,9 +676,38 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="EqP-US-rsh" kind="push" id="b3i-MF-8Cw"/>
+                                    <action selector="buy:" destination="RO3-tg-ski" eventType="touchUpInside" id="YYP-9A-Kt7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="K5J-wp-eSC">
+                                <rect key="frame" x="40" y="403" width="100" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="RO3-tg-ski" eventType="touchUpInside" id="mbK-WL-xnP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Baby Guido Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ZXE-hm-xlv">
+                                <rect key="frame" x="20" y="20" width="280" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Prize" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bfJ-nR-QIF">
+                                <rect key="frame" x="126" y="193" width="68" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -687,24 +716,20 @@
             </objects>
             <point key="canvasLocation" x="3151" y="50"/>
         </scene>
-        <!--View Controller-->
+        <!--Choose Card-->
         <scene sceneID="5LK-eb-z6w">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sQ-ch-Vfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="nE3-Jz-bht" sceneMemberID="viewController">
+                <viewController id="nE3-Jz-bht" customClass="ChooseCard" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0XQ-ka-T9g">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="board.png" id="Il2-PZ-BrT">
-                                <rect key="frame" x="40" y="37" width="241" height="171"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rR9-JX-YNe">
-                                <rect key="frame" x="60" y="403" width="200" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ANT-od-L0H">
+                                <rect key="frame" x="181" y="403" width="100" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Activate Card">
+                                <state key="normal" title="Choose">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -712,9 +737,49 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="EqP-US-rsh" kind="push" id="N1S-Dz-kss"/>
+                                    <action selector="choose:" destination="nE3-Jz-bht" eventType="touchUpInside" id="ow4-wu-6hG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="49S-QP-ceH">
+                                <rect key="frame" x="40" y="403" width="100" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="nE3-Jz-bht" eventType="touchUpInside" id="jKp-JV-Yea"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="board.png" id="zBz-PK-pMC">
+                                <rect key="frame" x="40" y="251" width="241" height="127"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Snookie Accessory is a one in a life opppurtinuty own a timetravel watch. It travels into the future with you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="W7d-HY-mbd">
+                                <rect key="frame" x="60" y="62" width="200" height="123"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Baby Guido Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2ky-Jt-8y5">
+                                <rect key="frame" x="20" y="20" width="280" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Prize" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="foW-10-cCE">
+                                <rect key="frame" x="126" y="193" width="68" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -996,6 +1061,12 @@
         <class className="BingoController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BingoController.h"/>
         </class>
+        <class className="CardList" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardList.h"/>
+        </class>
+        <class className="ChooseCard" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseCard.h"/>
+        </class>
         <class className="EmailPendingController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EmailPendingController.h"/>
         </class>
@@ -1013,6 +1084,9 @@
         </class>
         <class className="FacebookPendingController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FacebookPendingController.h"/>
+        </class>
+        <class className="PurchaseCard" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PurchaseCard.h"/>
         </class>
         <class className="RegisterController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterController.h"/>
@@ -1036,6 +1110,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="Npt-tc-t9q"/>
         <segue reference="q4x-fy-1wT"/>
-        <segue reference="b3i-MF-8Cw"/>
     </inferredMetricsTieBreakers>
 </document>

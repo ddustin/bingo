@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		584933BD160D168F00C708C3 /* PurchaseCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 584933BC160D168F00C708C3 /* PurchaseCard.m */; };
+		584933C0160D169A00C708C3 /* ChooseCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 584933BF160D169A00C708C3 /* ChooseCard.m */; };
 		58D2477515EAF004008E2252 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D2477415EAF004008E2252 /* UIKit.framework */; };
 		58D2477715EAF004008E2252 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D2477615EAF004008E2252 /* Foundation.framework */; };
 		58D2477915EAF004008E2252 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D2477815EAF004008E2252 /* CoreGraphics.framework */; };
@@ -41,9 +43,14 @@
 		58D8994E16083B95001E1B2F /* BWQuincyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D8994C16083B0D001E1B2F /* BWQuincyManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		58D8995016083BD1001E1B2F /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D8994F16083BD1001E1B2F /* CrashReporter.framework */; };
 		58D899551608F258001E1B2F /* Episodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D899541608F258001E1B2F /* Episodes.m */; };
+		58E4B5D91610C85F0079AC83 /* CardList.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E4B5D81610C85F0079AC83 /* CardList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		584933BB160D168F00C708C3 /* PurchaseCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseCard.h; sourceTree = "<group>"; };
+		584933BC160D168F00C708C3 /* PurchaseCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseCard.m; sourceTree = "<group>"; };
+		584933BE160D169A00C708C3 /* ChooseCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCard.h; sourceTree = "<group>"; };
+		584933BF160D169A00C708C3 /* ChooseCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCard.m; sourceTree = "<group>"; };
 		58D2477015EAF004008E2252 /* Bingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D2477415EAF004008E2252 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		58D2477615EAF004008E2252 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,6 +116,8 @@
 		58D8994F16083BD1001E1B2F /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CrashReporter.framework; path = Bingo/CrashReporter.framework; sourceTree = "<group>"; };
 		58D899531608F258001E1B2F /* Episodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episodes.h; sourceTree = "<group>"; };
 		58D899541608F258001E1B2F /* Episodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episodes.m; sourceTree = "<group>"; };
+		58E4B5D71610C85F0079AC83 /* CardList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardList.h; sourceTree = "<group>"; };
+		58E4B5D81610C85F0079AC83 /* CardList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +135,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		584933B8160D166A00C708C3 /* PurchaseCard */ = {
+			isa = PBXGroup;
+			children = (
+				584933BB160D168F00C708C3 /* PurchaseCard.h */,
+				584933BC160D168F00C708C3 /* PurchaseCard.m */,
+			);
+			name = PurchaseCard;
+			sourceTree = "<group>";
+		};
+		584933BA160D167200C708C3 /* ChooseCard */ = {
+			isa = PBXGroup;
+			children = (
+				584933BE160D169A00C708C3 /* ChooseCard.h */,
+				584933BF160D169A00C708C3 /* ChooseCard.m */,
+			);
+			name = ChooseCard;
+			sourceTree = "<group>";
+		};
 		58D2476515EAF004008E2252 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +188,9 @@
 		58D2477A15EAF004008E2252 /* Bingo */ = {
 			isa = PBXGroup;
 			children = (
+				58E4B5D51610C8420079AC83 /* CardList */,
+				584933BA160D167200C708C3 /* ChooseCard */,
+				584933B8160D166A00C708C3 /* PurchaseCard */,
 				58D899521608F245001E1B2F /* Episodes */,
 				58D8994D16083B12001E1B2F /* BQQuincyManager */,
 				58D8990616081BC1001E1B2F /* Util */,
@@ -350,6 +380,15 @@
 			name = Episodes;
 			sourceTree = "<group>";
 		};
+		58E4B5D51610C8420079AC83 /* CardList */ = {
+			isa = PBXGroup;
+			children = (
+				58E4B5D71610C85F0079AC83 /* CardList.h */,
+				58E4B5D81610C85F0079AC83 /* CardList.m */,
+			);
+			name = CardList;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,6 +479,9 @@
 				58D8994A160837D5001E1B2F /* SBJsonWriter.m in Sources */,
 				58D8994E16083B95001E1B2F /* BWQuincyManager.m in Sources */,
 				58D899551608F258001E1B2F /* Episodes.m in Sources */,
+				584933BD160D168F00C708C3 /* PurchaseCard.m in Sources */,
+				584933C0160D169A00C708C3 /* ChooseCard.m in Sources */,
+				58E4B5D91610C85F0079AC83 /* CardList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
