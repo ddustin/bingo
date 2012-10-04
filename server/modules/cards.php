@@ -12,7 +12,7 @@
      // On error or no matches, returns an empty array.
     */
     
-    function allCards(show_id) {
+    function allCards($show_id) {
         
         global $database;
         
