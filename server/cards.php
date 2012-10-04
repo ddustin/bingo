@@ -1,5 +1,5 @@
 <?php
-    include(dirname(__FILE__)."/modules/user.php");
+    include(dirname(__FILE__)."/modules/cards.php");
     
     $show_id = intval($_REQUEST['show_id']);
     
