@@ -556,6 +556,7 @@
 		58D2478F15EAF004008E2252 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Bingo\"",
@@ -564,6 +565,7 @@
 				GCC_PREFIX_HEADER = "Bingo/Bingo-Prefix.pch";
 				INFOPLIST_FILE = "Bingo/Bingo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -571,6 +573,7 @@
 		58D2479015EAF004008E2252 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Bingo\"",
@@ -579,6 +582,7 @@
 				GCC_PREFIX_HEADER = "Bingo/Bingo-Prefix.pch";
 				INFOPLIST_FILE = "Bingo/Bingo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
