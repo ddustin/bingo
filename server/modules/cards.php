@@ -5,9 +5,9 @@
      
      allCards(show_id)
      // Returns all the data for all cards
-     // The format is an array of hash tables. Each hash table has two keys:
-     // "id" => the bingo_card_id
-     // "json" => the bingo card json decoded into a php object
+     // The format is a hash table, keys are bingo_card_id integers while
+     // values are hash table with one key, "json" which refers to the card's
+     // json data parsed into a php object.
      // 
      // On error or no matches, returns an empty array.
     */
@@ -25,7 +25,7 @@
         $results = array();
         
         while($row = mysql_fetch_row($res))
-            $results[] = array("id" => $row[0], "json" => json_decode($row[1]));
+            $results[$row[0]] = array("json" => json_decode($row[1]));
         
         return $results;
     }
