@@ -2,6 +2,7 @@
     include(dirname(__FILE__)."/modules/cards.php");
     
     $card_id = intval($_REQUEST['card_id']);
+    $show_id = intval($_REQUEST['$show_id']);
     
     $json = array();
     
@@ -30,5 +31,5 @@
         }
     }
     
-    echo json_encode(array("id" => $json));
+    echo updateCard($show_id, $card_id, $json);
 ?>
