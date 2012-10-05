@@ -20,12 +20,15 @@
                 if(!$ary)
                     $ary = array();
                 
-                $ary[$i] = $value;
+                if(strlen($value))
+                    $ary[$i] = $value;
+
+                $json["squares"] = $ary;
             }
             else
                 $json[$jsonKey] = $value;
         }
     }
     
-    echo json_decode(array("id" => $json));
+    echo json_encode(array("id" => $json));
 ?>
