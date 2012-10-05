@@ -47,7 +47,7 @@
         $json = $database->escape(json_encode($json));
         
         if($card_id)
-            $query = "update `bingo_card` set `show_id`=$show_id, `json`=$json where `card_id`=$card_id limit 1";
+            $query = "update `bingo_card` set `show_id`=$show_id, `json`=$json where `id`=$card_id limit 1";
         else
             $query = "insert into `bingo_card` (`show_id`, `json`) values ($show_id, $json)";
         

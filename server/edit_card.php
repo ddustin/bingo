@@ -2,7 +2,7 @@
     include(dirname(__FILE__)."/modules/cards.php");
     
     $card_id = intval($_REQUEST['card_id']);
-    $show_id = intval($_REQUEST['$show_id']);
+    $show_id = intval($_REQUEST['show_id']);
     
     $json = array();
     
@@ -31,5 +31,7 @@
         }
     }
     
-    echo updateCard($show_id, $card_id, $json);
+    updateCard($show_id, $card_id, $json);
+
+    header("Location: cards.php?show_id=$show_id");
 ?>

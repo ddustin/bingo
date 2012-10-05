@@ -46,7 +46,7 @@ Show id: <input type="text" name="show_id"/> <br/>
         ?>
 <form action="edit_card.php">
 <input type="hidden" name="card_id" value="<?php echo $card_id ?>"/>
-<input type="hidden" name="show_id" value="<?php echo show_id ?>"/>
+<input type="hidden" name="show_id" value="<?php echo $show_id ?>"/>
 <?php
     foreach($card["json"] as $key => $value) {
         
